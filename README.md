@@ -13,18 +13,18 @@
     }
     
 # Call
-                    Intent intent = new Intent();
-                    try {
-                        intent.setComponent(new ComponentName("com.huawei.systemmanager", "com.huawei.systemmanager.optimize.process.ProtectActivity"));
-                        startActivity(intent);
-                    } catch (Exception e) {
-                        log(LOGTAG, "Failed to call com.huawei.systemmanager.optimize.process.ProtectActivity");
-                        log(LOGTAG, "Trying to use StartupNormalAppListActivity");
-                        try {
-                            intent = new Intent().setComponent(new ComponentName("com.huawei.systemmanager",
-                                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.P ? "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity" : "com.huawei.systemmanager.appcontrol.activity.StartupAppControlActivity"));
-                            startActivity(intent);
-                        } catch (Exception e2) {
-                            log(LOGTAG, "Failed to call StartupNormalAppListActivity");
-                        }
-                    }
+        Intent intent = new Intent();
+        try {
+            intent.setComponent(new ComponentName("com.huawei.systemmanager", "com.huawei.systemmanager.optimize.process.ProtectActivity"));
+            startActivity(intent);
+        } catch (Exception e) {
+            log(LOGTAG, "Failed to call com.huawei.systemmanager.optimize.process.ProtectActivity");
+            log(LOGTAG, "Trying to use StartupNormalAppListActivity");
+            try {
+                intent = new Intent().setComponent(new ComponentName("com.huawei.systemmanager",
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.P ? "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity" : "com.huawei.systemmanager.appcontrol.activity.StartupAppControlActivity"));
+                startActivity(intent);
+            } catch (Exception e2) {
+                log(LOGTAG, "Failed to call StartupNormalAppListActivity");
+            }
+        }
